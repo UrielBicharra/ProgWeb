@@ -1,0 +1,10 @@
+h1 {
+  color: orange;
+}
+p {
+  font-size: 14px;
+  color: green;
+  font-family: serif;
+  border: thin black solid;
+  padding: 4px;
+}
