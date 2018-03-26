@@ -7,9 +7,7 @@ p {
   border-bottom-right-radius: 10px;
   border-top-right-radius: 40px;
   border-bottom-left-radius: 40px;
-  padding-top: 6px;
-  padding-bottom:6px;
-  padding-left: 15px;
-  padding-right: 15px;
+
+  padding: 6px 15px 6px 15px;
   background-color: lightgray;
 }

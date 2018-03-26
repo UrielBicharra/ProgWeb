@@ -1,0 +1,17 @@
+div{
+	border: 10px solid darkorange;
+	border-radius: 6px 6px 6px 6px;
+	padding: 5px 5px 5px 5px;
+	background-color: rgba(192,192,192,0.5);
+	box-shadow: 4px 4px 10px rgba(192,192,192,0.5);
+	margin-right: 50%;
+	z-index: 2;
+	position: absolute;
+	top: 70px;
+	left: 60px
+}
+img {
+	margin: 0px 0px 0px 0px;
+	position: fixed;
+	z-index: 1;
+}
