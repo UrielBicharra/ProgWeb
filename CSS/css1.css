@@ -3,8 +3,13 @@ p {
   color: black;
   font-family: serif;
   border: 5px solid black;
-  border-top-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  padding: 6px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  padding-top: 6px;
+  padding-bottom:6px;
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: lightgray;
 }
