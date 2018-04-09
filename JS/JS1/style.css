@@ -1,7 +1,9 @@
 table {
 	margin: 10px 10px 10px 10px;
+	text-align: center;
+	display: inline-table;
 }
 
 thead {
-	color: red;
+	font-weight: bold;
 }
