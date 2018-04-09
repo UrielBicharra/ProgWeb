@@ -7,12 +7,15 @@ function tableCreate(){
 	var thead = tbl.createTHead();
 	var trH = thead.insertRow();
 	var tdH = trH.insertCell();
-	tdH.appendChild(document.createTextNode('head'));
+	tdH.appendChild(document.createTextNode("Produtos de " + num));
 	tdH.style.border = '1px solid black';
 	tdH.setAttribute('colSpan','2');
 
+	var tbody = tbl.createTBody();
+
+
 	for(var i = 1; i <= 10; i++){
-        var tr = tbl.insertRow();
+        var tr = tbody.insertRow();
         for(var j = 0; j < 2; j++){
             var td = tr.insertCell();
 			if(j == 0){
@@ -31,8 +34,3 @@ while (num <= 10) {
 	tableCreate();
 	num++;
 }
-/*
-tableCreate();
-tableCreate();
-tableCreate();
-*/
