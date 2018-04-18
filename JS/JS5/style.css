@@ -1,0 +1,22 @@
+td {
+  vertical-align: bottom;
+}
+div {
+  background-color: red;
+  width: 30px;
+}
+#div1 {
+  height: 100px;
+}
+#div2 {
+  height: 150px;
+}
+#div3 {
+  height: 120px;
+}
+#div4 {
+  height: 80px;
+}
+#div5 {
+  height: 40px;
+}
