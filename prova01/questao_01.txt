@@ -1,0 +1,18 @@
+Erro 1: 
+ln 04 /* Isso é um comentário e não deve aparecer na página */
+Comentários em HTML devem ser feitos utilizando os caracteres <!-- --> em vez de /* */
+Solução: <!-- Isso é um comentário e não deve aparecer na página -->
+
+Erro 2:
+ln 03 e ln 23, as tags <head> e </head>, que compõe o cabeçalho da página, estão incluindo nela todo o conteúdo da página.
+Solução: A tag </head> que termina o cabeçalho deve vir após o bloco <style>, que termina na ln 09.
+
+Erro 3:
+ln 02 e ln 24. as tags <body> e </body>, o corpo da página, contém o cabeçalho (<head>) da página.
+O corpo da página deve vir depois do cabeçalho.
+Solução:
+A tag <body> na ln 02 deve ser movida para antes do <h1> na linha 10.
+
+Erro 4:
+ln 19 e ln 22. O bloco <style> nessas linhas deveria ser um bloco <script>
+Solução: Substituir as palavras-chave style por script nas linhas 19 e 22. 
