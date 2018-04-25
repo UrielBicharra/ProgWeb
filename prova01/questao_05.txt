@@ -1,0 +1,112 @@
+commit 7e3efdc5801ec3ad8dfdb7b1f9b21bcc2ea5478d
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Wed Apr 25 09:05:23 2018 -0400
+
+    Quarta questão da prova
+
+commit c667b46b71bc83ee42f435eadf37f5165c20d6e2
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Wed Apr 25 08:59:39 2018 -0400
+
+    Terceira questão da prova
+
+commit 0d79231b23fddeeaa289b4e9f844f4bc24994ddc
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Wed Apr 25 08:45:14 2018 -0400
+
+    Segunda questão da prova
+
+commit 1270866732f3a5d4be14bdfffbd19b6a51068459
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Wed Apr 25 08:18:56 2018 -0400
+
+    Primeira questão da prova
+
+commit 1815ffefa1a3396796e4920f6874404aba2966dd
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Wed Apr 18 09:48:09 2018 -0400
+
+    Exercício 5 javascript
+
+commit 006d73b18301aef39719df3dccc7fba71c987728
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Apr 16 09:46:39 2018 -0400
+
+    Create index.html
+
+commit 13c8b9e1e99d06ba96b7a935a4ac5e287463e876
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Apr 16 08:51:20 2018 -0400
+
+    Create script.js
+
+commit dd60729a0ea0f2c8489a278a16ae7e3d7123f23a
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Apr 16 08:51:00 2018 -0400
+
+    Create index.html
+
+commit 0a6b613d811b2c6aaee188e0a911b61d207324bc
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Apr 9 18:05:59 2018 -0400
+
+    Update script.js
+
+commit 8f1eeeb25f13e89e8e620026d2c49e2123322279
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Apr 9 18:05:35 2018 -0400
+
+    Update style.css
+
+
+commit 306e44a876327b95e020484a952228d3b89d1992
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Apr 9 09:40:41 2018 -0400
+
+    Exercício JS
+
+commit 60cbd0216a6da17763cd9af007178a36b27c5995
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Wed Mar 28 09:38:34 2018 -0400
+
+    Create style.css
+
+commit 7b2d77877bacc427f12a37760580de0ef433903f
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Wed Mar 28 09:38:10 2018 -0400
+
+    Create index.html
+
+commit 4d54b54e242c10fd28d4c011173b23a1eb1edfb6
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Mar 26 09:42:43 2018 -0400
+
+    Exercício CSS2
+
+commit 6b1ea6a11aeb9690c023a2e52f9a264decd15589
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Mar 26 08:03:36 2018 -0400
+
+    Exercício 1 Correção
+
+commit 442479b692ce1b9639cd39bf33ba5caedc7be2e3
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Mon Mar 26 07:59:31 2018 -0400
+
+    Exercício 1 CSS
+
+commit ca5750ada6fe627ea53816be8fb425c20f94e928
+Author: UrielBicharra <ugb@icomp.ufam.edu.br>
+Date:   Wed Mar 21 09:43:15 2018 -0400
+
+    css
+
+commit bd110f8d168d3d018f1afc2f0d3698e359e5b9db
+Author: Erick <elb2@icomp.ufam.edu.br>
+Date:   Mon Mar 19 08:57:49 2018 -0400
+
+    Commit Inicial
+
+Diretório de trabalho é o diretório onde arquivos estão sendo modificados por algum usuário.
+Repositório local é uma cópia do repositório remoto, cujas alterações podem ou não ser salvas no repositório remoto.
+Repositório remoto é a base para todos os repositórios locais, e contém o estado salvo do repositório.
