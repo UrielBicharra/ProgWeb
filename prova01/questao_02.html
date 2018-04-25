@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prova</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	div {
+		margin-right: 1250px;
+	}
+	</style>
+</head>
+<body>
+	<div name="icomp" id='icomp'>Instituto de Computação</div>
+	<input type="button" id ='add' value="Adicionar Estilos" />
+	<input type="button" id = 'clr' value="Limpar Estilos" />
+	<script type="text/javascript">
+		var frase = document.getElementById('icomp');
+		var botaoAdd = document.getElementById('add');
+		var botaoClr = document.getElementById('clr');
+		
+		botaoAdd.onclick = function () {
+			frase.style.color = 'red';
+			frase.style.backgroundColor = 'gray';
+		};
+
+		botaoClr.onclick = function () {
+			frase.style.color = '';
+			frase.style.backgroundColor = '';
+		};
+	</script>
+</body>
+</html>
