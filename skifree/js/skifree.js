@@ -10,6 +10,7 @@
    var direcoes = ['para-esquerda','para-frente','para-direita']
    var arvores = [];
    var tocos = [];
+   var rochas = [];
 
    function init () {
       montanha = new Montanha();
@@ -49,7 +50,7 @@
          }
          if (this.direcao == 2) {
             this.element.style.left = (parseInt(this.element.style.left)+1) + "px";
-         }         
+         }
       }
    }
    //Arvore
@@ -69,6 +70,13 @@
       this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
    }
    //Rocha
+   function Rocha() {
+     this.element = document.createElement('div');
+     montanha.element.appendChild(this.element);
+     this.element.className = 'rocha';
+     this.element.style.top = TAMY + "px";
+     this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
+   }
    //Arbusto
    //Cachorro
 
@@ -85,12 +93,19 @@
          var toco = new Toco();
          tocos.push(toco);
       }
+      if (random <= PROB_ARVORE*10) {
+         var rocha = new Rocha();
+         rochas.push(rocha);
+      }
 
       arvores.forEach(function (a) {
          a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
       });
       tocos.forEach(function (a) {
          a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
+      });
+      rochas.forEach(function (a){
+        a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
       });
       skier.andar();
    }
