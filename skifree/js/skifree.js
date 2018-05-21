@@ -1,6 +1,6 @@
 (function () {
 
-   const FPS = 50;
+   const FPS = 30;
    const TAMX = 300;
    const TAMY = 400;
    const PROB_ARVORE = 2;

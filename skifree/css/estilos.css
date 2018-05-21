@@ -42,6 +42,20 @@
     height: 12px;
     position: absolute;
 }
+.arbusto {
+    background-image: url(obstacles.png);
+    background-position: 0px -103px;
+    width: 22px;
+    height: 27px;
+    position: absolute;
+}
+.cogumelo {
+    background-image: url(obstacles.png);
+    background-position: -271px -52px ;
+    width: 8px;
+    height: 11px;
+    position: absolute;
+}
 #montanha {
    border: 1px solid black;
    position: relative;
