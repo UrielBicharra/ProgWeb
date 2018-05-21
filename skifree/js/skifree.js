@@ -11,6 +11,8 @@
    var arvores = [];
    var tocos = [];
    var rochas = [];
+   var arbustos = [];
+   var cogumelos = [];
 
    function init () {
       montanha = new Montanha();
@@ -78,9 +80,22 @@
      this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
    }
    //Arbusto
-   //Cachorro
-
+   function Arbusto() {
+     this.element = document.createElement('div');
+     montanha.element.appendChild(this.element);
+     this.element.className = 'arbusto';
+     this.element.style.top = TAMY + "px";
+     this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
+   }
    //Cogumelo
+   function Cogumelo() {
+     this.element = document.createElement('div');
+     montanha.element.appendChild(this.element);
+     this.element.className = 'cogumelo';
+     this.element.style.top = TAMY + "px";
+     this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
+   }
+   //Cachorro
    //Yeti
 
    function run () {
@@ -97,6 +112,14 @@
          var rocha = new Rocha();
          rochas.push(rocha);
       }
+      if (random <= PROB_ARVORE*10) {
+         var arbusto = new Arbusto();
+         arbustos.push(arbusto);
+      }
+      if (random <= PROB_ARVORE*10) {//Probabilidade do Cogumelo deve ser bem menor que dos outros objetos
+         var cogumelo = new Cogumelo();
+         cogumelos.push(cogumelo);
+      }
 
       arvores.forEach(function (a) {
          a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
@@ -105,6 +128,12 @@
          a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
       });
       rochas.forEach(function (a){
+        a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
+      });
+      arbustos.forEach(function (a){
+        a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
+      });
+      cogumelos.forEach(function (a){
         a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
       });
       skier.andar();
