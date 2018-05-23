@@ -4,6 +4,7 @@
    const TAMX = 300;
    const TAMY = 400;
    const PROB_ARVORE = 2;
+   const TURBO = 3;
    var gameLoop;
    var montanha;
    var skier;
@@ -14,6 +15,7 @@
    var arbustos = [];
    var cogumelos = [];
    var speed = 2;
+   var turboState = false;
 
    function init () {
       montanha = new Montanha();
@@ -26,11 +28,17 @@
       else if (e.key == 'd') skier.mudarDirecao(1);
    });
 
-   window.addEventListener('keydow', function (e) {
-     if(e.key == 'f') speed = 10;
+   window.addEventListener('keydown', function (e) {
+     if(e.key == 'f' && turboState == false) {
+       speed *= TURBO;
+       turboState = true;
+     }
    });
-   window.addEventListener('keyup', function (e) {
-     if(e.key == 'f') speed = 2;
+   window.addEventListener('keyup',function(e) {
+     if(e.key == 'f') {
+       speed /= TURBO;
+       turboState = false;
+     }
    });
 
    function Montanha () {
