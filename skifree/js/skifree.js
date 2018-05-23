@@ -3,7 +3,11 @@
    const FPS = 30;
    const TAMX = 300;
    const TAMY = 400;
-   const PROB_ARVORE = 2;
+   const PROB_ARVORE = 3;
+   const PROB_ARBUSTO = 4;
+   const PROB_ROCHA = 2;
+   const PROB_TOCO = 3;
+   const PROB_COGUMELO = 1;
    const TURBO = 3;
    var gameLoop;
    var montanha;
@@ -132,7 +136,7 @@
          var arbusto = new Arbusto();
          arbustos.push(arbusto);
       }
-      if (random <= PROB_ARVORE*10) {//Probabilidade do Cogumelo deve ser bem menor que dos outros objetos
+      if (random <= PROB_COGUMELO* 10) {//Probabilidade do Cogumelo deve ser bem menor que dos outros objetos
          var cogumelo = new Cogumelo();
          cogumelos.push(cogumelo);
       }
