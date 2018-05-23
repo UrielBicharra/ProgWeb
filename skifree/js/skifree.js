@@ -13,6 +13,7 @@
    var rochas = [];
    var arbustos = [];
    var cogumelos = [];
+   var speed = 2;
 
    function init () {
       montanha = new Montanha();
@@ -23,6 +24,13 @@
    window.addEventListener('keydown', function (e) {
       if (e.key == 'a') skier.mudarDirecao(-1);
       else if (e.key == 'd') skier.mudarDirecao(1);
+   });
+
+   window.addEventListener('keydow', function (e) {
+     if(e.key == 'f') speed = 10;
+   });
+   window.addEventListener('keyup', function (e) {
+     if(e.key == 'f') speed = 2;
    });
 
    function Montanha () {
@@ -47,11 +55,11 @@
       }
 
       this.andar = function () {
-         if (this.direcao == 0) {
-            this.element.style.left = (parseInt(this.element.style.left)-1) + "px";
+         if (this.direcao == 0 && (parseInt(this.element.style.left) >= 0)) {
+            this.element.style.left = (parseInt(this.element.style.left)-speed) + "px";
          }
-         if (this.direcao == 2) {
-            this.element.style.left = (parseInt(this.element.style.left)+1) + "px";
+         if (this.direcao == 2 && (parseInt(this.element.style.left) <= TAMX -12)) {//width of current skier image
+            this.element.style.left = (parseInt(this.element.style.left)+speed) + "px";
          }
       }
    }
@@ -121,20 +129,21 @@
          cogumelos.push(cogumelo);
       }
 
+
       arvores.forEach(function (a) {
-         a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
+         a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
       });
       tocos.forEach(function (a) {
-         a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
+         a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
       });
       rochas.forEach(function (a){
-        a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
+        a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
       });
       arbustos.forEach(function (a){
-        a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
+        a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
       });
       cogumelos.forEach(function (a){
-        a.element.style.top = (parseInt(a.element.style.top)-1) + "px";
+        a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
       });
       skier.andar();
    }
