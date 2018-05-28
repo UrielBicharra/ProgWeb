@@ -14,15 +14,16 @@
    var gameLoop;
    var montanha;
    var scoreboard;
+   var theEnd;
    var skier;
    var direcoes = ['para-esquerda','para-frente','para-direita','caindo'];
    var classNames = ['arvore','toco','rocha','arbusto','cogumelo'];
    var objetos = [];
    var speed = 2;
    var turboState = false;
-   var colisions = 0;
    var colidindo= false;
    var contadorGracePeriod= 0;
+   var vidas = 3;
 
    function init () {
       montanha = new Montanha();
@@ -56,18 +57,31 @@
    }
 
    function ScoreBoard () {
-     var pts = "Pontuação:   ";
+     var pts = "-> Pontuação:   ";
+     var lifes = "-> Vidas:     ";
      this.element = document.getElementById("score");
-     this.element.style.left = TAMX + "px";
+     this.element.style.left = (TAMX + 5) + "px";
+     this.element.style.top = "-" + Math.floor(TAMY/2) + "px";
 
-     this.element.innerHTML = pts;
+     this.element.innerHTML = pts + "<br>" + lifes;
 
      this.contarPontos = function () {
-        this.element.innerHTML = pts + pontuacao;
-		console.log();
+        this.element.innerHTML = pts + pontuacao + "<br>" + lifes + vidas;
      };
    }
 
+   function GameOver () {
+     this.element = document.createElement('div');
+     montanha.element.appendChild(this.element);
+     this.element.className = "end";
+     this.element.style.top = Math.floor(TAMY/2) + "px";
+     this.element.style.left = (Math.floor(TAMX/2) - 50) + "px";
+     this.element.style.zIndex = 5;
+     this.element.style.width = "100px";
+
+     this.element.innerHTML = "GAME OVER"
+
+   }
    function Skier() {
 
       this.element = document.getElementById("skier");
@@ -106,7 +120,7 @@
    }
 
    function Objeto(classe) {
-	 var podeColidir = true;
+	   this.podeColidir = true;
      this.element = document.createElement('div');
      montanha.element.appendChild(this.element);
      this.element.className = classNames[classe];
@@ -116,30 +130,36 @@
      this.subir = function () {
          this.element.style.top = (parseInt(this.element.style.top)-speed) + "px";
      };
-	 this.colidir = function () {
-		 var objTop = parseInt(this.element.style.top);
-		 var objRight = parseInt(this.element.style.left) + parseInt(this.element.style.width);
-		 var objBot = parseInt(this.element.style.top) + parseInt(this.element.style.height);
-		 var objLeft = parseInt(this.element.style.left);
-		 var skiTop = parseInt(skier.element.style.top);
-		 var skiBot = parseInt(skier.element.style.top) + parseInt(window.getComputedStyle(skier.element).getPropertyValue('height'));
-		 var skiLeft = parseInt(skier.element.style.left);
-		 var skiRight = parseInt(skier.element.style.left) + parseInt(window.getComputedStyle(skier.element).getPropertyValue('width'));
-		 //console.log(objectLeft);
-		 //var skierTop = window.getComputedStyle(skier.element).getPropertyValue();
+	   this.colidir = function () {
+    		 var objTop = parseInt(this.element.style.top);
+    		 var objRight = parseInt(this.element.style.left) + Math.floor(parseInt(window.getComputedStyle(this.element).getPropertyValue('width')));
+    		 var objBot = parseInt(this.element.style.top) + Math.floor(parseInt(window.getComputedStyle(this.element).getPropertyValue('height')));
+    		 var objLeft = parseInt(this.element.style.left);
+    		 var skiTop = parseInt(skier.element.style.top);
+    		 var skiBot = parseInt(skier.element.style.top) + Math.floor(parseInt(window.getComputedStyle(skier.element).getPropertyValue('height')));
+    		 var skiLeft = parseInt(skier.element.style.left);
+    		 var skiRight = parseInt(skier.element.style.left) + Math.floor(parseInt(window.getComputedStyle(skier.element).getPropertyValue('width')));
 
-		 if (skiBot < objTop || skiTop > objBot || skiLeft > objRight || skiRight < objLeft) {}
-		 else if(podeColidir){
-			 colisions++;
-			 podeColidir = false;
-			 colidindo = true;
-		 }
-	 }
+         if(this.podeColidir && !colidindo && !(skiBot < objTop || skiTop > objBot || skiLeft > objRight || skiRight < objLeft))
+         {
+    			 this.podeColidir = false;
+    			 colidindo = true;
+           vidas--;
+           console.log(this.element.className);
+           console.log("OT:" + objTop + " OL:" + objLeft + " OR:" + objRight);
+           console.log("SB:" + skiBot + " SL:" + skiLeft + " SR:" + skiRight);
+    		 }
+	   };
+  /*  this.apagarDiv = function () {
+      if(parseInt(this.element.style.top) < 0) {
+        this.element.ParentNode.removeChild(this.element);
+      }
+    }*/
    }
 
    function run () {
       var random = Math.floor(Math.random() * 10000);
-      if (random <= PROB_ARVORE*10) {
+      if (random <= PROB_ARVORE*0) {
          var arvore = new Objeto(0);
          objetos.push(arvore);
       }
@@ -160,14 +180,25 @@
          objetos.push(cogumelo);
       }
 
-      objetos.forEach(function (a) {
+    objetos.forEach(function (a) {
           a.subir();
       });
 	  objetos.forEach(function (a) {
 		 a.colidir();
 	  });
-      scoreboard.contarPontos();
-      pontuacao++;
+    objetos.forEach(function (a) {
+      if(parseInt(a.element.style.top) < 0) {
+        montanha.element.removeChild(a.element);
+        var index = objetos.indexOf(a);
+        objetos.splice(index,1);
+      }
+    });
+    if(vidas <= 0) {
+      clearInterval(gameLoop);
+      theEnd = new GameOver();
+    }
+    scoreboard.contarPontos();
+    if(!colidindo) pontuacao++;
 	  if(colidindo) skier.AnimarColisao();
       skier.andar();
    }
