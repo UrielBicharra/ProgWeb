@@ -1,6 +1,6 @@
 (function () {
 
-   const FPS = 30;
+   const FPS = 50;
    const TAMX = 300;
    const TAMY = 400;
    const PROB_ARVORE = 3;
@@ -9,21 +9,23 @@
    const PROB_TOCO = 3;
    const PROB_COGUMELO = 1;
    const TURBO = 3;
+   var pontuação = 0;
+   var tropecando = false;
    var gameLoop;
    var montanha;
+   var scoreboard;
    var skier;
-   var direcoes = ['para-esquerda','para-frente','para-direita']
-   var arvores = [];
-   var tocos = [];
-   var rochas = [];
-   var arbustos = [];
-   var cogumelos = [];
+   var direcoes = ['para-esquerda','para-frente','para-direita'];
+   var classNames = ['arvore','toco','rocha','arbusto','cogumelo'];
+   var objetos = [];
    var speed = 2;
    var turboState = false;
+   var colisions = 0;
 
    function init () {
       montanha = new Montanha();
       skier = new Skier();
+      scoreboard = new ScoreBoard();
       gameLoop = setInterval(run, 1000/FPS);
    }
 
@@ -51,6 +53,18 @@
       this.element.style.height = TAMY + "px";
    }
 
+   function ScoreBoard () {
+     var col = "Colisões";
+     this.element = document.getElementById("score");
+     this.element.style.left = TAMX + "px";
+
+     this.element.innerHTML = col;
+
+     this.contarPontos = function () {
+        this.element.innerHTML = col + colisions;
+     };
+   }
+
    function Skier() {
 
       this.element = document.getElementById("skier");
@@ -70,96 +84,71 @@
          if (this.direcao == 0 && (parseInt(this.element.style.left) >= 0)) {
             this.element.style.left = (parseInt(this.element.style.left)-speed) + "px";
          }
-         if (this.direcao == 2 && (parseInt(this.element.style.left) <= TAMX -12)) {//width of current skier image
+         if (this.direcao == 2 && (parseInt(this.element.style.left) <= TAMX - 20)) {//width of current skier image
             this.element.style.left = (parseInt(this.element.style.left)+speed) + "px";
          }
       }
    }
-   //Arvore
-   function Arvore() {
-      this.element = document.createElement('div');
-      montanha.element.appendChild(this.element);
-      this.element.className = 'arvore';
-      this.element.style.top = TAMY + "px";
-      this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
-   }
-   //Toco
-   function Toco() {
-      this.element = document.createElement('div');
-      montanha.element.appendChild(this.element);
-      this.element.className = 'toco';
-      this.element.style.top = TAMY + "px";
-      this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
-   }
-   //Rocha
-   function Rocha() {
-     this.element = document.createElement('div');
-     montanha.element.appendChild(this.element);
-     this.element.className = 'rocha';
-     this.element.style.top = TAMY + "px";
-     this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
-   }
-   //Arbusto
-   function Arbusto() {
-     this.element = document.createElement('div');
-     montanha.element.appendChild(this.element);
-     this.element.className = 'arbusto';
-     this.element.style.top = TAMY + "px";
-     this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
-   }
-   //Cogumelo
-   function Cogumelo() {
-     this.element = document.createElement('div');
-     montanha.element.appendChild(this.element);
-     this.element.className = 'cogumelo';
-     this.element.style.top = TAMY + "px";
-     this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
-   }
-   //Cachorro
-   //Yeti
 
+   function Objeto(classe) {
+     var colide = true;//se o objeto pode causar uma colisão
+     this.element = document.createElement('div');
+     montanha.element.appendChild(this.element);
+     this.element.className = classNames[classe];
+     this.element.style.top = TAMY + "px";
+     this.element.style.left = Math.floor(Math.random() * TAMX) + "px";
+
+     this.subir = function () {
+         this.element.style.top = (parseInt(this.element.style.top)-speed) + "px";
+     };
+
+     this.colidir = function () {
+       //checa a posição do skiador, se bater, gera colisão
+       var skierRight = parseInt(skier.element.style.left) + parseInt(skier.element.style.width);
+       var skierLeft = parseInt(skier.element.style.left);
+       var skierBottom = parseInt(skier.element.style.top) + parseInt(skier.element.style.height);
+       var objectRight = parseInt(this.element.style.left) + parseInt(this.element.style.width);
+       var objectLeft = parseInt(this.element.style.left);
+       var objectTop = parseInt(this.element.style.top);
+
+       if(colide && ((objectTop <= skierBottom) || (objectLeft <= skierRight) || (skierLeft <= objectRight))) {
+         colisions++;
+         colide = false;
+       }
+     };
+   }
    function run () {
-      var random = Math.floor(Math.random() * 1000);
+      var random = Math.floor(Math.random() * 10000);
       if (random <= PROB_ARVORE*10) {
-         var arvore = new Arvore();
-         arvores.push(arvore);
+         var arvore = new Objeto(0);
+         objetos.push(arvore);
       }
-      if (random <= PROB_ARVORE*10) {
-         var toco = new Toco();
-         tocos.push(toco);
+      if (random <= PROB_TOCO*10) {
+         var toco = new Objeto(1);
+         objetos.push(toco);
       }
-      if (random <= PROB_ARVORE*10) {
-         var rocha = new Rocha();
-         rochas.push(rocha);
+      if (random <= PROB_ROCHA*10) {
+         var rocha = new Objeto(2);
+         objetos.push(rocha);
       }
-      if (random <= PROB_ARVORE*10) {
-         var arbusto = new Arbusto();
-         arbustos.push(arbusto);
+      if (random <= PROB_ARBUSTO*10) {
+         var arbusto = new Objeto(3);
+         objetos.push(arbusto);
       }
-      if (random <= PROB_COGUMELO* 10) {//Probabilidade do Cogumelo deve ser bem menor que dos outros objetos
-         var cogumelo = new Cogumelo();
-         cogumelos.push(cogumelo);
+      if (random <= PROB_COGUMELO* 10) {
+         var cogumelo = new Objeto(4);
+         objetos.push(cogumelo);
       }
 
-
-      arvores.forEach(function (a) {
-         a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
+      objetos.forEach(function (a) {
+          a.subir();
+          a.colidir();
       });
-      tocos.forEach(function (a) {
-         a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
-      });
-      rochas.forEach(function (a){
-        a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
-      });
-      arbustos.forEach(function (a){
-        a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
-      });
-      cogumelos.forEach(function (a){
-        a.element.style.top = (parseInt(a.element.style.top)-speed) + "px";
-      });
+      scoreboard.contarPontos();
+      pontuação++;
       skier.andar();
    }
-
+//qualquer coisa a ser feita antes de iniciar o jogo deve ir aqui
    init();
 
 })();
