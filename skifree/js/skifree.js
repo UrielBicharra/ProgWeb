@@ -1,12 +1,12 @@
 (function () {
 
    const FPS = 50;
-   const TAMX = 300;
-   const TAMY = 400;
-   const PROB_ARVORE = 3;
-   const PROB_ARBUSTO = 4;
-   const PROB_ROCHA = 2;
-   const PROB_TOCO = 3;
+   const TAMX = 600;
+   const TAMY = 600;
+   const PROB_ARVORE = 2;
+   const PROB_ARBUSTO = 3;
+   const PROB_ROCHA = 1;
+   const PROB_TOCO = 2;
    const PROB_COGUMELO = 1;
    const TURBO = 3;
    var pontuacao = 0;
@@ -17,7 +17,7 @@
    var theEnd;
    var skier;
    var direcoes = ['para-esquerda','para-frente','para-direita','caindo'];
-   var classNames = ['arvore','toco','rocha','arbusto','cogumelo'];
+   var classNames = ['arvore','toco','rocha','arbusto','cogumelo','yeti'];
    var objetos = [];
    var speed = 2;
    var turboState = false;
@@ -49,6 +49,7 @@
        turboState = false;
      }
    });
+
 
    function Montanha () {
       this.element = document.getElementById("montanha");
@@ -87,7 +88,7 @@
       this.element = document.getElementById("skier");
       this.direcao = 1; //0-esquerda;1-frente;2-direita
       this.element.className = 'para-frente';
-      this.element.style.top = '30px';
+      this.element.style.top = '100px';
       this.element.style.left = parseInt(TAMX/2)-7 + 'px';
 
       this.mudarDirecao = function (giro) {
@@ -118,7 +119,10 @@
 		  }
 	  }
    }
-
+   function Yeti () {
+     this.element = document.createElement('div');
+     montanha.element.appendChild(this.element);
+   }
    function Objeto(classe) {
 	   this.podeColidir = true;
      this.element = document.createElement('div');
@@ -142,12 +146,14 @@
 
          if(this.podeColidir && !colidindo && !(skiBot < objTop || skiTop > objBot || skiLeft > objRight || skiRight < objLeft))
          {
-    			 this.podeColidir = false;
+           if(this.element.className == classNames[4]) {
+             vidas++;
+             this.podeColidir = false;
+           } else {
+           this.podeColidir = false;
     			 colidindo = true;
            vidas--;
-           console.log(this.element.className);
-           console.log("OT:" + objTop + " OL:" + objLeft + " OR:" + objRight);
-           console.log("SB:" + skiBot + " SL:" + skiLeft + " SR:" + skiRight);
+           }
     		 }
 	   };
   /*  this.apagarDiv = function () {
@@ -158,8 +164,8 @@
    }
 
    function run () {
-      var random = Math.floor(Math.random() * 10000);
-      if (random <= PROB_ARVORE*0) {
+      var random = Math.floor(Math.random() * 2000);
+      if (random <= PROB_ARVORE*10) {
          var arvore = new Objeto(0);
          objetos.push(arvore);
       }
