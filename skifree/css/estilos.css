@@ -1,3 +1,7 @@
+div {
+	border: 1px solid black;
+}
+
 .para-direita {
    background-image: url(skier.png);
    background-position: -25px -6px;
@@ -17,6 +21,13 @@
    background-position: -67px -2px;
    width: 15px;
    height: 32px;
+}
+
+.caindo {
+	background-image: url(skier.png);
+    background-position: -82px -84px;
+    width: 34px;
+    height: 25px;
 }
 
 .arvore {
@@ -64,4 +75,10 @@
 
 #skier {
    position: absolute;
+}
+
+#score {
+	border: 1px solid black;
+	position: relative;
+	width: 150px;
 }
