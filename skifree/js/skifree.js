@@ -17,7 +17,8 @@
    var theEnd;
    var skier;
    var direcoes = ['para-esquerda','para-frente','para-direita','caindo'];
-   var classNames = ['arvore','toco','rocha','arbusto','cogumelo','yeti'];
+   var classNames = ['arvore','toco','rocha','arbusto','cogumelo'];
+   var yetiAnimation = ['yeti-esquerda','yeti-frente','yeti-direita','yeti-anim-I','yeti-anim-II','yeti-anim-III','yeti-anim-IV','yeti-anim-V'];
    var objetos = [];
    var speed = 2;
    var turboState = false;
@@ -33,8 +34,12 @@
    }
 
    window.addEventListener('keydown', function (e) {
-      if (e.key == 'a') skier.mudarDirecao(-1);
-      else if (e.key == 'd') skier.mudarDirecao(1);
+      if (e.key == 'a') {
+        skier.mudarDirecao(-1);
+      }
+      else if (e.key == 'd') {
+        skier.mudarDirecao(1);
+      }
    });
 
    window.addEventListener('keydown', function (e) {
@@ -101,7 +106,7 @@
       this.andar = function () {
          if (this.direcao == 0 && (parseInt(this.element.style.left) >= 0)) {
             this.element.style.left = (parseInt(this.element.style.left)-speed) + "px";
-		} else if (this.direcao == 2 && (parseInt(this.element.style.left) <= TAMX - 20)) {//width of current skier image
+		} else if (this.direcao == 2 && (parseInt(this.element.style.left) <= TAMX - 20)) {
             this.element.style.left = (parseInt(this.element.style.left)+speed) + "px";
 		} else {
 		}
@@ -119,10 +124,7 @@
 		  }
 	  }
    }
-   function Yeti () {
-     this.element = document.createElement('div');
-     montanha.element.appendChild(this.element);
-   }
+
    function Objeto(classe) {
 	   this.podeColidir = true;
      this.element = document.createElement('div');
@@ -156,11 +158,6 @@
            }
     		 }
 	   };
-  /*  this.apagarDiv = function () {
-      if(parseInt(this.element.style.top) < 0) {
-        this.element.ParentNode.removeChild(this.element);
-      }
-    }*/
    }
 
    function run () {

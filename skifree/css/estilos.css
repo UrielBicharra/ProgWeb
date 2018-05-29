@@ -1,3 +1,51 @@
+.yeti-frente {
+	background-image: url(skier.png);
+	background-position: -34px -112px;
+	width: 28px;
+	height: 43px;
+}
+.yeti-direita {
+	background-image: url(skier.png);
+	background-position: -91px -116px;
+	width: 30px;
+	height: 39px;
+}
+.yeti-esquerda {
+	background-image: url(skier.png);
+	background-position: -91px -163px;
+	width: 30px;
+	height: 39px;
+}
+.yeti-anim-I {
+	background-image: url(skier.png);
+	background-position: -123px -114px;
+	width: 31px;
+	height: 41px;
+}
+.yeti-anim-II {
+	background-image: url(skier.png);
+	background-position: -157px -114px ;
+	width: 29px;
+	height: 41px;
+}
+.yeti-anim-III {
+	background-image: url(skier.png);
+	background-position: -188px -114px;
+	width: 29px ;
+	height: 41px;
+}
+.yeti-anim-IV {
+	background-image: url(skier.png);
+	background-position: -219px -114px ;
+	width: 23px;
+	height: 41px;
+}
+.yeti-anim-V {
+	background-image: url(skier.png);
+	background-position: -244px -118px;
+	width: 26px;
+	height: 37px;
+}
 .para-direita {
    background-image: url(skier.png);
    background-position: -25px -6px;
