@@ -1,3 +1,6 @@
+Conceito de closure e explicação do código corretos.
+Nota: 2.0
+
 Closure é um recurso da linguagem Javascript que utiliza escopos para 'proteger' variáveis, fazendo com que elas só podem ser acessadas utilizando funções específicas definidas na closure.
 
 No exemplo, a variável baz dentro da função foo só pode ser vista por quem estiver dentro da função foo. A função foo tem um retorno que exibe no console uma operação usando a variável baz.

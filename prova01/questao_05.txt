@@ -1,3 +1,6 @@
+Logs e conceitos reportados corretamente.
+Nota: 2.0
+
 commit 7e3efdc5801ec3ad8dfdb7b1f9b21bcc2ea5478d
 Author: UrielBicharra <ugb@icomp.ufam.edu.br>
 Date:   Wed Apr 25 09:05:23 2018 -0400
@@ -110,3 +113,5 @@ Date:   Mon Mar 19 08:57:49 2018 -0400
 Diretório de trabalho é o diretório onde arquivos estão sendo modificados por algum usuário.
 Repositório local é uma cópia do repositório remoto, cujas alterações podem ou não ser salvas no repositório remoto.
 Repositório remoto é a base para todos os repositórios locais, e contém o estado salvo do repositório.
+
+
