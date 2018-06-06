@@ -56,6 +56,12 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function getCurso() {
+      return $this->hasOne(
+        Curso::className(), ['id' => 'id_curso']
+      );
+    }
+
     /**
      * {@inheritdoc}
      */
