@@ -120,6 +120,9 @@ class CursoController extends Controller
     {
         if (($model = Curso::findOne($id)) !== null) {
             return $model;
+        } else {
+          $model = Curso::findOne(3);
+          return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');

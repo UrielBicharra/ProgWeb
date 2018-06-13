@@ -55,6 +55,12 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
+/*
+    public function attributeLabels() {
+      return [
+
+      ];
+    }*/
 
     public function getCurso() {
       return $this->hasOne(
@@ -191,5 +197,9 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function afterFind() {
+      $this->created_at = date("d/m/Y",$this->created_at);
     }
 }
