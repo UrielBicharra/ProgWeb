@@ -1,0 +1,134 @@
+.yeti-frente {
+	background-image: url(skier.png);
+	background-position: -34px -112px;
+	width: 28px;
+	height: 43px;
+}
+.yeti-direita {
+	background-image: url(skier.png);
+	background-position: -91px -116px;
+	width: 30px;
+	height: 39px;
+}
+.yeti-esquerda {
+	background-image: url(skier.png);
+	background-position: -91px -163px;
+	width: 30px;
+	height: 39px;
+}
+.yeti-anim-I {
+	background-image: url(skier.png);
+	background-position: -123px -114px;
+	width: 31px;
+	height: 41px;
+}
+.yeti-anim-II {
+	background-image: url(skier.png);
+	background-position: -157px -114px ;
+	width: 29px;
+	height: 41px;
+}
+.yeti-anim-III {
+	background-image: url(skier.png);
+	background-position: -188px -114px;
+	width: 29px ;
+	height: 41px;
+}
+.yeti-anim-IV {
+	background-image: url(skier.png);
+	background-position: -219px -114px ;
+	width: 23px;
+	height: 41px;
+}
+.yeti-anim-V {
+	background-image: url(skier.png);
+	background-position: -244px -118px;
+	width: 26px;
+	height: 37px;
+}
+.para-direita {
+   background-image: url(skier.png);
+   background-position: -25px -6px;
+   width: 22px;
+   height: 28px;
+}
+
+.para-esquerda {
+   background-image: url(skier.png);
+   background-position: -26px -43px;
+   width: 22px;
+   height: 28px;
+}
+
+.para-frente {
+   background-image: url(skier.png);
+   background-position: -67px -2px;
+   width: 15px;
+   height: 32px;
+}
+
+.caindo {
+	background-image: url(skier.png);
+    background-position: -82px -84px;
+    width: 34px;
+    height: 25px;
+}
+
+.arvore {
+   background-image: url(obstacles.png);
+   background-position: 0px -31px;
+   width: 28px;
+   height: 32px;
+   position: absolute;
+}
+
+.toco {
+   background-image: url(obstacles.png);
+   background-position: -252px -51px;
+   width: 9px;
+   height: 6px;
+   position: absolute;
+}
+
+.rocha {
+    background-image: url(obstacles.png);
+    background-position: -30px -52px;
+    width: 23px;
+    height: 12px;
+    position: absolute;
+}
+.arbusto {
+    background-image: url(obstacles.png);
+    background-position: 0px -103px;
+    width: 22px;
+    height: 27px;
+    position: absolute;
+}
+.cogumelo {
+    background-image: url(obstacles.png);
+    background-position: -271px -52px ;
+    width: 8px;
+    height: 11px;
+    position: absolute;
+}
+#montanha {
+   border: 1px solid black;
+   position: relative;
+   overflow: hidden;
+}
+
+#skier {
+   position: absolute;
+}
+
+#score {
+	border: 1px solid black;
+	position: relative;
+	width: 150px;
+}
+
+.end {
+	border: 2px solid red;
+	position: relative;
+
+}
