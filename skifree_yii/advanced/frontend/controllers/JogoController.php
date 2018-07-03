@@ -18,15 +18,20 @@ class JogoController extends \yii\web\Controller
 
     public function actionSave($pontuacao)
     {
-        if(!Yii::$app->user->isGuest) {
-          $jogada = new Jogada;
-          $jogada->id_user = Yii::$app->user->id;
-          $jogada->pontuacao = $pontuacao;
+        if(Yii::$app->request->isAjax) {
+          if(!Yii::$app->user->isGuest) {
+            $jogada = new Jogada;
+            $jogada->id_user = Yii::$app->user->id;
+            $jogada->pontuacao = $pontuacao;
+            $jogada->data_hora = "data teste";
+//            $jogada->save();
+//            return $jogada->pontuacao;
 
-          if($jogada->save()) {
-            return 1;
-          } else {
-            return 0;
+            if($jogada->save()) {
+              return 1;
+            } else {
+              return 0;
+            }
           }
         }
     }

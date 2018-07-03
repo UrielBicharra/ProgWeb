@@ -9,7 +9,7 @@ $this->title = 'Skifree PW IComp';
 
     <div class="jumbotron">
       <?=  Html::img('@web/img/icomp.png',['width'=>'400']) ?>
-        <h1>Instituto de Computação - Programação Web</h1>
+        <h1>Instituto de Computação</h1>
 
         <p class="lead">O Instituto de Computação (IComp), antigo Departamento de
         Ciência da Computação (DCC), é um instituto acadêmico que agrega os professores
