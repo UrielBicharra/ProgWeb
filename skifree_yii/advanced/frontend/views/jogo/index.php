@@ -17,7 +17,7 @@ $this->registerJs("
     },
     error: function () {
       console.log('Erro');
-    }
+    },
     success: function (data) {
       console.log(data);
     }

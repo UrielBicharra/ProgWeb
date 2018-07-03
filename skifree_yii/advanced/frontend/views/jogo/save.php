@@ -1,5 +1,6 @@
 <?php
 /* @var $this yii\web\View */
+
 ?>
 <h1>/jogo/save</h1>
 
