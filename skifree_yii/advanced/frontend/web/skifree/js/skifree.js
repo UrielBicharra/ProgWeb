@@ -9,9 +9,9 @@
    const PROB_TOCO = 2;
    const PROB_COGUMELO = 1;
    const TURBO = 3;
-   var pontuacao = 0;
    var tropecando = false;
    var gameLoop;
+   var pontuacao = 0;
    var montanha;
    var scoreboard;
    var theEnd;
@@ -204,6 +204,8 @@
     if(!colidindo) pontuacao++;
 	  if(colidindo) skier.AnimarColisao();
       skier.andar();
+
+
    }
 //qualquer coisa a ser feita antes de iniciar o jogo deve ir aqui
    init();

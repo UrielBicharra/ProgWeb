@@ -23,9 +23,8 @@ class JogoController extends \yii\web\Controller
             $jogada = new Jogada;
             $jogada->id_user = Yii::$app->user->id;
             $jogada->pontuacao = $pontuacao;
-            $jogada->data_hora = "data teste";
-//            $jogada->save();
-//            return $jogada->pontuacao;
+            $jogada->data_hora = date('Y-M-d H:i:s');
+            //$jogada->save();
 
             if($jogada->save()) {
               return 1;

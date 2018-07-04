@@ -23,7 +23,7 @@ $this->registerJs("
     }
   });
 ");*/
-
+$pontos = 100;
 echo Html::a('Salvar Pontuação','#', [
         'title' => 'Ajax Title',
         'onclick'=>"
@@ -31,7 +31,7 @@ echo Html::a('Salvar Pontuação','#', [
           type: 'GET',
           url: '" . Url::to(['jogo/save']) . "',
           data: {
-              'pontuacao': 100
+              'pontuacao': '" . $pontos ."'
           },
           error: function () {
             console.log('Erro');
